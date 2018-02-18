@@ -8,3 +8,6 @@ zipcodes/tl_2017_us_zcta510.shp.iso.xml filter=lfs diff=lfs merge=lfs -text
 zipcodes/tl_2017_us_zcta510.shp filter=lfs diff=lfs merge=lfs -text
 zipcodes/tl_2017_us_zcta510.shp.ea.iso.xml filter=lfs diff=lfs merge=lfs -text
 zipcodes/tl_2017_us_zcta510.shp.xml filter=lfs diff=lfs merge=lfs -text
+e10g/e10g filter=lfs diff=lfs merge=lfs -text
+e10g/e10g.hdr filter=lfs diff=lfs merge=lfs -text
+e10g/read_raster.py filter=lfs diff=lfs merge=lfs -text
