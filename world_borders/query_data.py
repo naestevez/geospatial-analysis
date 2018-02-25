@@ -16,3 +16,15 @@ cursor = connection.cursor()
 cursor.execute("SELECT id, name FROM borders ORDER BY name")
 for row in cursor:
     print row
+
+print "The following list are countries within 1000 kilometers of Paris:"
+lat = 48.8567
+longitude = 2.3508
+radius = 1000000 #in meters
+
+#ST_DWITHIN() function makes 3 parameters geometry 1(which is positive), geometry 2, distance
+#ST_MakePoint() function take lat and long and makes a point
+cursor.execute("SELECT name FROM borders WHERE ST_DWITHIN(" + "ST_MakePoint(%s, %s), outline, %s)", (longitude, lat, radius))
+
+for row in cursor:
+    print row[0]
