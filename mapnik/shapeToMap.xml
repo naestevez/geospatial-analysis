@@ -1,0 +1,19 @@
+<Map srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+
+<Style name="Style1">
+  <Rule>
+    <PolygonSymbolizer fill="#709070" />
+    <TextSymbolizer face-name="DejaVu Sans Bold" size="12" fill="black" allow-overlap="true">[NAME]</TextSymbolizer>
+    <LineSymbolizer stroke="black" stroke-width="0.4" />
+  </Rule>
+</Style>
+
+<Layer name="layer" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+  <StyleName>Style1</StyleName>
+  <Datasource>
+    <Parameter name="type">shape</Parameter>
+    <Parameter name="file">TM_WORLD_BORDERS-0.3.shp</Parameter>
+  </Datasource>
+</Layer>
+
+</Map>

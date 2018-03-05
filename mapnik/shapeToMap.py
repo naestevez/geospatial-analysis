@@ -1,16 +1,5 @@
 import mapnik
-
-#map layers to configure map
-LAYERS = [
-  {'shapefile' : 'TM_WORLD_BORDERS-0.3.shp',
-   'lineColor' : 'black',
-   'lineWidth' : 0.4,
-   'fillColor' : '#709070',
-   'labelField' : 'NAME',
-   'labelSize' : 12,
-   'labelColor' : 'black'
-  }
-]
+stylesheet = 'shapeToMap.xml'
 
 BACKGROUND_COLOR = '#a0c0ff'
 
@@ -40,40 +29,8 @@ if mapHeight > MAX_HEIGHT:
 #initialize map object
 map = mapnik.Map(mapWidth, mapHeight)
 map.background = mapnik.Color(BACKGROUND_COLOR)
+mapnik.load_map(map, stylesheet)
 
-#define map styles - 1 style and 1 rule for each layer
-for i, src in enumerate(LAYERS):
-    style = mapnik.Style()
-    rule = mapnik.Rule()
-
-    if src['fillColor'] != None:
-        symbol = mapnik.PolygonSymbolizer()
-        symbol.fill = mapnik.Color(src['fillColor'])
-        rule.symbols.append(symbol)
-    if src['lineColor'] != None:
-        symbol = mapnik.LineSymbolizer()
-        symbol.stroke = mapnik.Color(src['lineColor'])
-        symbol.stroke_width = src['lineWidth']
-        rule.symbols.append(symbol)
-    if src['labelField'] != None:
-        symbol = mapnik.TextSymbolizer(mapnik.Expression("[" + src['labelField'] + "]"), "DejaVu Sans Bold", src['labelSize'], mapnik.Color(src['labelColor']))
-
-        symbol.allow_overlap = True
-        rule.symbols.append(symbol)
-
-    #appends individual rules and style combos to style
-    style.rules.append(rule)
-
-    #appends the style to map
-    #args = (stylename, style)
-    map.append_style("style-" + str(i+1), style)
-
-#???
-for i, src in enumerate(LAYERS):
-    layer = mapnik.Layer("layer-"+str(i+1))
-    layer.datasource = mapnik.Shapefile(file=src['shapefile'])
-    layer.styles.append("style-"+str(i+1))
-    map.layers.append(layer)
 
 #renders the map image
 map.zoom_to_box(extent)
