@@ -1,15 +1,26 @@
 <Map srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
 
-<Style name="Style1">
+<Style name="polygon-style">
   <Rule>
     <PolygonSymbolizer fill="#709070" />
-    <TextSymbolizer face-name="DejaVu Sans Bold" size="12" fill="black" allow-overlap="true">[NAME]</TextSymbolizer>
     <LineSymbolizer stroke="black" stroke-width="0.4" />
+  </Rule>
+</Style>
+<Style name="country-names">
+  <Rule>
+    <TextSymbolizer face-name="DejaVu Sans Bold" size="12" fill="black" allow-overlap="false">[NAME]</TextSymbolizer>
   </Rule>
 </Style>
 
 <Layer name="layer" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
-  <StyleName>Style1</StyleName>
+  <StyleName>polygon-style</StyleName>
+  <Datasource>
+    <Parameter name="type">shape</Parameter>
+    <Parameter name="file">TM_WORLD_BORDERS-0.3.shp</Parameter>
+  </Datasource>
+</Layer>
+<Layer name="layer" srs="+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs">
+  <StyleName>country-names</StyleName>
   <Datasource>
     <Parameter name="type">shape</Parameter>
     <Parameter name="file">TM_WORLD_BORDERS-0.3.shp</Parameter>
