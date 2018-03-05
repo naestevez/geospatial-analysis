@@ -68,11 +68,11 @@ for i, src in enumerate(LAYERS):
     #args = (stylename, style)
     map.append_style("style-" + str(i+1), style)
 
-#defines various layers???
+#???
 for i, src in enumerate(LAYERS):
-    layer = mapnik.Layer("layer-" + str(i+1))
+    layer = mapnik.Layer("layer-"+str(i+1))
     layer.datasource = mapnik.Shapefile(file=src['shapefile'])
-    layer.styles.append("style-" + str(i+1))
+    layer.styles.append("style-"+str(i+1))
     map.layers.append(layer)
 
 #renders the map image
