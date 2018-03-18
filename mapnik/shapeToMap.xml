@@ -2,7 +2,7 @@
 
 <Style name="polygon-style">
   <Rule>
-    <!-- <Filter>[NAME] = 'Germany' </Filter> -->
+    <!-- <Filter>[NAME] = 'Spain' </Filter> -->
 
     <PolygonSymbolizer fill="#709070" />
     <LineSymbolizer stroke="black" stroke-width="0.4" />
@@ -11,7 +11,7 @@
 
 <Style name="country-names">
   <Rule>
-    <!-- <Filter>[NAME] = 'France' </Filter> -->
+    <!-- <Filter>[NAME] = 'Spain' </Filter> -->
 
     <TextSymbolizer face-name="DejaVu Sans Bold" size="12" fill="black" allow-overlap="false" halo-fill="white" halo-radius="1" label-position-tolerance="double">[NAME]</TextSymbolizer>
   </Rule>

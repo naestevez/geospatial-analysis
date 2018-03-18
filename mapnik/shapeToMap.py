@@ -1,6 +1,6 @@
 import mapnik
 from osgeo import gdal, ogr
-from shapely import geometry
+from shapely.wkt import dumps, loads
 
 countryChosen = raw_input('Which country would you like to see? ')
 countryChosen = countryChosen.lower()
@@ -17,8 +17,8 @@ for i in range(layer.GetFeatureCount()):
     if feature_name == countryChosen:
         geometry = feature.GetGeometryRef()
         wkt = geometry.ExportToWkt()
-        outline = shapely.wkt.loads(wkt)
-        print type(outline.bounds) #(min_x, min_y, max_x, max_y)
+        outline = loads(wkt)
+        print(outline.bounds) #(min_x, min_y, max_x, max_y)
 
 #assign bounds of specific country to visible extent of map
 (BOUNDS_MIN_LONG, BOUNDS_MIN_LAT, BOUNDS_MAX_LONG, BOUNDS_MAX_LAT) = outline.bounds
