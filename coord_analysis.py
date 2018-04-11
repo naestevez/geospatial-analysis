@@ -5,7 +5,7 @@ geod = pyproj.Geod(ellps="WGS84")
 #prompt user to enter desired coordinates
 def get_coord(prompt):
     while True:
-        s = raw_input(prompt + " (lat,long): ")
+        s = input(prompt + " (lat,long): ")
         if "," not in s: continue
         s1, s2 = s.split(",", 1)
         try:
@@ -29,7 +29,7 @@ def get_coord(prompt):
 
 def get_num(prompt):
     while True:
-        s = raw_input(prompt + ": ")
+        s = input(prompt + ": ")
         try:
             value = float(s)
         except ValueError:
@@ -44,5 +44,5 @@ heading = get_num("Heading")
 #calculate ending coordinate and inverse heading and print it out
 eLong, eLat, iHeading = geod.fwd(sLong, sLat, heading, distance)
 
-print "End point = (%0.4f,%0.4f)" % (eLat, eLong)
-print "Inverse heading = %0.2f degrees" % iHeading
+print("End point = (%0.4f,%0.4f)" % (eLat, eLong))
+print("Inverse heading = %0.2f degrees" % iHeading)

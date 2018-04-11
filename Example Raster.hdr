@@ -1,0 +1,13 @@
+BYTEORDER      I
+LAYOUT         BIL
+NROWS          360
+NCOLS          180
+NBANDS         1
+NBITS          16
+BANDROWBYTES   360
+TOTALROWBYTES  360
+PIXELTYPE      SIGNEDINT
+ULXMAP         -179.875
+ULYMAP         89.875
+XDIM           0.25
+YDIM           0.25
