@@ -4,7 +4,7 @@ import shutil
 from osgeo import ogr, osr
 from shapely import wkt
 
-SRC_SHAPEFILE = "tl_2017_06_prisecroads.shp"
+SRC_SHAPEFILE = "tl_2017_06_prisecroads/tl_2017_06_prisecroads.shp"
 
 all_roads = []
 shapefile = ogr.Open("SRC_SHAPEFILE")

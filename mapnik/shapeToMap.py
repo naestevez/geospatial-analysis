@@ -1,5 +1,6 @@
 import mapnik
-from osgeo import gdal, ogr, osr
+import osgeo.ogr
+import osgeo.osr
 from shapely.wkt import dumps, loads
 import os
 from xml.etree import ElementTree as ET
@@ -12,12 +13,12 @@ def main():
     countryChosen = countryChosen.lower()
 
     #retrieves shapefile, assigns layer to variable, fetches srs for this layer
-    shapefile = ogr.Open("TM_WORLD_BORDERS-0.3.shp")
+    shapefile = osgeo.ogr.Open("TM_WORLD_BORDERS-0.3.shp")
     layer = shapefile.GetLayer()
     projection = layer.GetSpatialRef()
 
     #converts wkt to proj4, assigns srs to variable to be placed in xml stylesheet
-    srs = osr.SpatialReference()
+    srs = osgeo.osr.SpatialReference()
     srs.ImportFromWkt(projection.ExportToWkt())
     proj4_format = srs.ExportToProj4()
 

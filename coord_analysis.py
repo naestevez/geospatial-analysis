@@ -12,7 +12,8 @@ def get_coord(prompt):
             latitude = float(s1.strip())
         except ValueError:
             continue
-        try: longitude = float(s2.strip())
+        try:
+            longitude = float(s2.strip())
         except ValueError:
             continue
         return latitude, longitude

@@ -1,4 +1,3 @@
-#!/usr/bin/env python2
 # -*- coding: utf-8 -*-
 """
 Created on Tue Feb 20 09:45:10 2018
@@ -25,4 +24,3 @@ transform = osr.CoordinateTransformation(src_spatialReference, dst_spatialRefere
 
 #converts geometry from one spatial reference to another using Transform()
 geometry.Transform(transform)
-
